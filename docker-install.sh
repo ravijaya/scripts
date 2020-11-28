@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+############################################
+#
+# Script to install Docker & Docker Compose
+#
+############################################
+
 echo -e "\e[1mRunning the script to install Docker & Docker Compose"
 sudo apt-get update
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
@@ -18,3 +24,4 @@ echo
 echo
 echo -e "Installation successful, exiting the session. \e[1;4mPlease login again to use Docker"
 sleep 5
+kill -SIGUSR1 `ps --pid $$ -oppid=`; exit
