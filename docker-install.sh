@@ -22,6 +22,6 @@ sudo usermod -aG docker ${USER}
 echo
 echo
 echo -e "Installation successful, exiting the session. \e[1;4mPlease login again to use Docker & Docker Compose"
-echo "Press any key to contine"
+echo "Press any key to continue"
 sleep 5
 kill -SIGUSR1 `ps --pid $$ -oppid=`; exit
