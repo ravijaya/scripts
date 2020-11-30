@@ -95,6 +95,9 @@ git clone -b dev https://$GITUSER:$GITPASSWORD@dev.azure.com/skancore/skan/_git/
 
 cd devOps
 
+sed -i -re 's/user:".+"/user:"'$MONGODB_USERNAME'"/' \
+       -re 's/password:".+"/password:"'MONGODB_PASSWORD'"/' mongodb/init-init-mongo.js
+
 docker-compose -f mongodb/docker-compose.yml up --build -d
 mongodb_service=$(docker-compose -f mongodb/docker-compose.yml ps | wc -l)
 
