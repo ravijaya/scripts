@@ -38,12 +38,12 @@ export GITPASSWORD=gkme6jop5kttajmfspvfn35tae2o3w5agwyy6god56guky3g75aa
 
 echo -n  'enter the server name :'
 read servername
-check_for_empty ServerName $servername8805
+check_for_empty ServerName $servername
 # check_for_fqdn ServerName $servername
 
 echo -n  'enter the gateway port:'
 read gatewayport
-check_for_empty "Gateway Port" $servername
+check_for_empty "Gateway Port" $gatewayport
 
 echo -n 'enter the MongoDB Server :'
 read dbserver
@@ -64,6 +64,7 @@ check_for_empty "MongoDB Password" $password
 echo; echo
 
 platform_api_path=platform_api
+platform_api_path=""
 
 
 cat <<EOF > $HOME/$platform_api_path/env.list
@@ -90,7 +91,7 @@ export MONGODB_PORT=$port
 export MONGODB_USERNAME=$username
 export MONGODB_PASSWORD=$password
 
-git clone https://$GITUSER:$GITPASSWORD@dev.azure.com/skancore/skan/_git/devOps
+git clone -b dev https://$GITUSER:$GITPASSWORD@dev.azure.com/skancore/skan/_git/devOps
 
 cd devOps
 
